@@ -38,7 +38,8 @@ class RtspServer(
   private val TAG = "RtspServer"
   private var socketType = SocketType.JAVA
   private var server = StreamServerSocket(socketType)
-  val serverIp: String get() = getIPAddress()
+  private var manualServerIp: String? = null
+  val serverIp: String get() = manualServerIp ?: getIPAddress()
   private val clients = mutableListOf<ServerClient>()
   private val scope = CoroutineScope(Dispatchers.IO)
   private var job: Job? = null
@@ -335,6 +336,26 @@ class RtspServer(
     } else {
       throw RuntimeException("Please set IpType before startServer.")
     }
+  }
+
+  /**
+   * Manually set the server IP address.
+   * This will override the automatic IP detection.
+   * Useful when automatic detection fails or returns incorrect IP.
+   *
+   * @param ip The IP address to use for the RTSP server
+   */
+  fun setServerIp(ip: String) {
+    manualServerIp = ip
+    Log.i(TAG, "Manual server IP set to: $ip")
+  }
+
+  /**
+   * Clear the manually set IP address and use automatic detection.
+   */
+  fun clearManualServerIp() {
+    manualServerIp = null
+    Log.i(TAG, "Manual server IP cleared, using automatic detection")
   }
 
   override fun onClientConnected(client: ServerClient) {
