@@ -15,8 +15,8 @@ appcompat = "1.6.1"
 constraintlayout = "2.1.4"
 coroutines = "1.10.2"
 ktor = "2.3.13"
-# 🐾 Use forked RootEncoder with UDP port reuse fix + releaseSurface() fix (based on 2.6.1)
-rootEncoder = "8d79b6300"
+# 🐾 Use forked RootEncoder with UDP port reuse fix + releaseSurface() fix + captureRGBABuffer() for AI inference (based on 2.6.1)
+rootEncoder = "f7ffc00e8"
 
 [libraries]
 androidx-appcompat = { module = "androidx.appcompat:appcompat", version.ref = "appcompat" }
