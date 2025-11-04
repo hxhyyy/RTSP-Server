@@ -22,7 +22,9 @@ class ServerClient(
   private val delay: Long? = null,
   private val socketType: SocketType,
   private val host: String,
-  private val socket: TcpStreamSocket, serverIp: String, serverPort: Int,
+  private val socket: TcpStreamSocket,
+  private val serverIp: String,  // 🐾 Changed to class field
+  private val serverPort: Int,   // 🐾 Changed to class field
   serverCommandManager: ServerCommandManager,
   private val listener: ClientListener
 ) {
@@ -47,6 +49,7 @@ class ServerClient(
       setVideoInfo(serverCommandManager.sps!!, serverCommandManager.pps, serverCommandManager.vps)
       setAudioInfo(serverCommandManager.sampleRate, serverCommandManager.isStereo)
       setAuth(serverCommandManager.user, serverCommandManager.password)
+      setServerInfo(serverIp, serverPort)  // 🐾 Fix: Set server IP and port
       videoCodec = serverCommandManager.videoCodec
       audioCodec = serverCommandManager.audioCodec
       audioDisabled = serverCommandManager.audioDisabled
