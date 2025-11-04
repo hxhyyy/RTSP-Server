@@ -52,7 +52,7 @@ afterEvaluate {
 
 dependencies {
     implementation(libs.kotlinx.coroutines.android)
-    implementation(libs.rootEncoder.library)
+    api(libs.rootEncoder.library)  // 🐾 Changed to api to expose RootEncoder classes
     implementation(libs.ktor.network)
     implementation(libs.ktor.network.tls)
 }
