@@ -16,7 +16,7 @@ constraintlayout = "2.1.4"
 coroutines = "1.10.2"
 ktor = "2.3.13"
 # 🐾 Use forked RootEncoder with UDP port reuse fix + releaseSurface() fix (based on 2.6.1)
-rootEncoder = "52389b2a6"
+rootEncoder = "12dd290f2"
 
 [libraries]
 androidx-appcompat = { module = "androidx.appcompat:appcompat", version.ref = "appcompat" }
