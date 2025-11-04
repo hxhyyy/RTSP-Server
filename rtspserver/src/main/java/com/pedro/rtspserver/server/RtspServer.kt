@@ -52,6 +52,10 @@ class RtspServer(
   private var delay: Long? = null
   private var socketTimeout: Long = StreamSocket.DEFAULT_TIMEOUT
 
+  init {
+    Log.i(TAG, "🐾 RTSP-Server Fork版本 v1.3.7-fix-ip by hxhyyy 已加载！")
+  }
+
   val droppedAudioFrames: Long
     get() = synchronized(clients) {
       var items = 0L
@@ -347,7 +351,7 @@ class RtspServer(
    */
   fun setServerIp(ip: String) {
     manualServerIp = ip
-    Log.i(TAG, "Manual server IP set to: $ip")
+    Log.i(TAG, "🐾 [hxhyyy Fork] Manual server IP set to: $ip")
   }
 
   /**
